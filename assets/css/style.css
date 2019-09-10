@@ -1,0 +1,179 @@
+/* RESET CSS */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+input:focus, textarea:focus {
+	outline: none;
+}
+/* FIN RESET CSS */
+
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+	color: white;
+	margin: 0px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+	font-weight: normal;
+}
+.menu h1, .menu h2, .menu h3, .menu h4, .menu h5, .menu h6 {
+	margin: 0 0 0.6em;
+}
+
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 30px;
+}
+
+hr.center {
+	width: 300px;
+	margin: auto;
+}hr.left {
+	width: 300px;
+}
+
+#dots {
+	width: 100%;
+	height: 100%;
+	background-image: url(assets/img/dots.png);
+	opacity: 0.6;
+	z-index: -1;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+#voile {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(100, 100, 130, 0.4);
+	box-shadow: inset 0px 0px 150px 100px rgb(34, 34, 34, .6);
+	display: none;
+	animation: fondu .3s;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+.page {
+	width: 1024px;
+	max-width: 100%;
+	padding: 20px 30px;
+	margin: 2em auto;
+	background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.9);
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.6);
+	box-sizing: border-box;
+}
+
+.sup {
+	vertical-align: super;
+}
+
+.sub {
+	vertical-align: sub;
+}
+
+
+/* --- Classes modulaires --- */
+
+.floatLeft {
+	float: left;
+	margin-right: 20px;
+}
+
+.floatRight {
+	float: right;
+	margin-left: 20px;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.row {
+    width: 100%;
+    margin: 1em 0;
+}
+
+.col-80, .col-75, .col-66, .col-60, .col-50, .col-40, .col-33, .col-30, .col-25, .col-20, .col-15 {
+	box-sizing: border-box;
+	vertical-align: top;
+    display: inline-block;
+    position: relative;
+}
+.col-80 { width: 80%;}
+.col-75 { width: 75%;}
+.col-66 { width: 66.7%;}
+.col-60 { width: 60%;}
+.col-50 { width: 50%;}
+.col-40 { width: 40%;}
+.col-33 { width: 33.3%;}
+.col-30 { width: 30%;}
+.col-25 { width: 25%;}
+.col-20 { width: 20%;}
+.col-15 { width: 15%;}
+
+.space {width: 1px; height: 10px;}
+.space5 {width: 1px; height: 5px;}
+.space15 {width: 1px; height: 15px;}
+.space20 {width: 1px; height: 20px;}
+.space25 {width: 1px; height: 25px;}
+.space50 {width: 1px; height: 50px;}
+.space100 {width: 1px; height: 100px;}
+.space200 {width: 1px; height: 200px;}
+.space400 {width: 1px; height: 400px;}
+
+.tab {width: 10px; height: 1px; display: inline-block; overflow: hidden;}
+.tab20 {width: 20px; height: 1px; display: inline-block; overflow: hidden;}
+.tab25 {width: 25px; height: 1px; display: inline-block; overflow: hidden;}
+.tab50 {width: 50px; height: 1px; display: inline-block; overflow: hidden;}
+
+.nl {width: 15px;height: 0px;display: block;}
+
+.hidden {
+	display: none;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.transparent {
+	opacity: 0.5;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.clear {
+	clear: both;
+}
+
+.strong {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.bold {
+	font-weight: bold;
+}

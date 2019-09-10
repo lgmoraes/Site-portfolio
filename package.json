@@ -1,0 +1,23 @@
+{
+  "name": "cv",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgmoraes/Site-cv.git"
+  },
+  "author": "Louis Moraes",
+  "bugs": {
+    "url": "https://github.com/lgmoraes/Site-cv/issues"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "atom_webatlas": "^1.0.1",
+    "font_webatlas": "^1.0.0",
+    "screenfull": "^4.2.0"
+  }
+}
