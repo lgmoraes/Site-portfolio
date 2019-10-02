@@ -40,8 +40,17 @@
 
     <div id="portfolio">
         <?php foreach ($dir as $d): ?>
-            <a href="<?php echo $d; ?>" class="item">
-                <?php echo ucfirst($d); ?>
+            <a
+                href="<?php echo $d; ?>"
+                class="item"
+                <?php
+                    if(file_exists($d."/favicon.png"))
+                        echo "style='background-image: url(". $d ."/favicon.png);'";
+                ?>
+            >
+                <?php
+                    echo ucfirst($d);
+                ?>
             </a>
         <?php endforeach; ?>
     </div>
