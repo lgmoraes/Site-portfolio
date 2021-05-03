@@ -1,0 +1,24 @@
+{
+    "items": {
+        "CV": {
+            "id": "cv",
+            "link": "https://www.lmoraes.fr/cv/",
+            "icon": "screen",
+            "desc": "CV en ligne"
+        }
+    },
+    "social": {
+        "linkedin": {
+            "icon": "linkedIn",
+            "link": "https://www.linkedin.com/in/lgmoraes"
+        },
+        "npm": {
+            "icon": "npm",
+            "link": "https://www.npmjs.com/~lgmoraes"
+        },
+        "github": {
+            "icon": "github",
+            "link": "https://github.com/lgmoraes"
+        }
+    }
+}
