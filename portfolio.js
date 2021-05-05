@@ -83,28 +83,51 @@ function majArrowLeft() {
     }
 }
 
+
 var _Slider = {
     target: null,
     initialScroll: null,
     mousedown: null,
+    touchIdentifier: null,
+    getOngoingTouch: function (ev) {
+        var touches = ev.changedTouches;
+
+        for (var i = 0; i < touches.length; i++) {
+            var t = touches.item(i);
+
+            if (t.identifier === this.touchIdentifier)
+                return t;
+        }
+
+        return false;
+    },
     reset: function () {
         this.target = null;
         this.initialScroll = null;
         this.mousedown = null;
+        this.touchIdentifier = null;
     }
 }
 
 function initSlider() {
 
     onmousemove = function (e) {
-        if (_Slider.target === null)
+        if (_Slider.touchIdentifier !== false) // Si le mouvement n'est pas initié avec la souris
             return false;
 
         var ele = _Slider.target;
 
-        if (ele) {
-            ele.scrollLeft = _Slider.initialScroll + (_Slider.mousedown - e.clientX);
-        }
+        ele.scrollLeft = _Slider.initialScroll + (_Slider.mousedown - e.clientX);
+    };
+
+    ontouchmove = function (e) {
+        var t = _Slider.getOngoingTouch(e);
+        if (!t)
+            return false;
+
+        var ele = _Slider.target;
+
+        ele.scrollLeft = _Slider.initialScroll + (_Slider.mousedown - t.clientX);
     };
 
     onmouseup = function () {
@@ -112,6 +135,16 @@ function initSlider() {
             _Slider.reset();
         }
     };
+    
+    ontouchend = function (e) {
+        if (_Slider.getOngoingTouch(e))
+            _Slider.reset();
+    }
+
+    ontouchcancel = function (e) {
+        if (_Slider.getOngoingTouch(e))
+            _Slider.reset();
+    }
 }
 
 function makeSlider(ele) {
@@ -122,6 +155,19 @@ function makeSlider(ele) {
 
         _Slider.target = ele;
         _Slider.initialScroll = ele.scrollLeft;
-        _Slider.mousedown = e.clientX;
+        _Slider.mousedown = e.clientX
+        _Slider.touchIdentifier = false;
+    });
+
+    ele.addEventListener('touchstart', function (e) {
+        if (_Slider.target !== null)
+            return false;
+
+        var t = e.changedTouches.item(0);
+
+        _Slider.target = ele;
+        _Slider.initialScroll = ele.scrollLeft;
+        _Slider.mousedown = t.clientX;
+        _Slider.touchIdentifier = t.identifier;
     });
 }
