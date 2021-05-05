@@ -89,6 +89,7 @@ var _Slider = {
     initialScroll: null,
     mousedown: null,
     touchIdentifier: null,
+    blocker: null,
     getOngoingTouch: function (ev) {
         var touches = ev.changedTouches;
 
@@ -101,23 +102,43 @@ var _Slider = {
 
         return false;
     },
+    block: function () {
+        this.blocker = document.createElement('div');
+        this.blocker.style.cursor = 'grabbing';
+        this.blocker.style.position = 'absolute';
+        this.blocker.style.zIndex = getComputedStyle(this.target).zIndex;
+
+        this.blocker.style.width = this.target.offsetWidth + "px";
+        this.blocker.style.height = this.target.offsetHeight + "px";
+        this.blocker.style.left = this.target.offsetLeft + "px";
+        this.blocker.style.top = this.target.offsetTop + "px";
+
+        this.target.parentElement.appendChild(this.blocker);
+    },
     reset: function () {
         this.target = null;
         this.initialScroll = null;
         this.mousedown = null;
         this.touchIdentifier = null;
+        if (this.blocker) {
+            remove(this.blocker);
+            this.blocker = null;
+        }
     }
 }
 
 function initSlider() {
-
     onmousemove = function (e) {
         if (_Slider.touchIdentifier !== false) // Si le mouvement n'est pas initié avec la souris
             return false;
 
         var ele = _Slider.target;
+        var interval = (_Slider.mousedown - e.clientX);
 
-        ele.scrollLeft = _Slider.initialScroll + (_Slider.mousedown - e.clientX);
+        ele.scrollLeft = _Slider.initialScroll + interval;
+
+        if (_Slider.blocker === null && Math.abs(interval) > 10)
+            _Slider.block();
     };
 
     ontouchmove = function (e) {
@@ -135,7 +156,7 @@ function initSlider() {
             _Slider.reset();
         }
     };
-    
+
     ontouchend = function (e) {
         if (_Slider.getOngoingTouch(e))
             _Slider.reset();
