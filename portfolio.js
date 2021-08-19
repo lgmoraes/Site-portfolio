@@ -8,6 +8,9 @@ var items = document.querySelectorAll('#portfolio .item');
 var mobileEnabled = false;
 
 
+initSlider();
+makeSlider(portfolio);
+
 onload = function () {
 
     items.forEach(i => {
@@ -27,9 +30,6 @@ onload = function () {
             }
         });
     });
-
-    initSlider();
-    makeSlider(portfolio);
 };
 
 onwheel = function (e) {
