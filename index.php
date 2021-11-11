@@ -25,13 +25,16 @@ $socialMedias = $data->social;
     <title>Portfolio Louis Moraes</title>
 
     <style>
-        <?php 
+        <?php
         foreach ($items as $item) {
-            echo '#'. $item->id .'.item {background-image:url(assets/content/'. $item->id .'.png);}';
+            $ext = ".png";
+
+            if (file_exists('assets/content/' . $item->id . '.jpg'))
+                $ext = ".jpg";
+
+            echo '#' . $item->id . '.item {background-image:url(assets/content/' . $item->id . $ext . ');}';
         }
         ?>
-
-        
     </style>
 </head>
 
