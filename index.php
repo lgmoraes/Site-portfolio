@@ -15,6 +15,14 @@ $socialMedias = $data->social;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.png">
 
+    <meta property="og:site_name" content="Portfolio Louis MORAES">
+    <meta property="og:title" content="Portfolio Louis MORAES">
+    <meta property="og:image" content="https://lmoraes.fr/assets/img/index-thumbnail.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lmoraes.fr/">
+    <meta property="og:description" content="Portfolio de Louis MORAES, Développeur Front-End React.">
+    <meta name="twitter:card" content="summary_large_image"></meta>
+
     <link rel="stylesheet" href="node_modules/font_webatlas/webAtlas.css">
     <link rel="stylesheet" href="node_modules/font_webatlas/font-face/webAtlas-original.css">
     <link rel="stylesheet" href="assets/css/style.css">
